@@ -5,6 +5,7 @@ import { inspect, InspectOptions } from "util"
 
 export interface ConsoleFormatOptions {
   showMeta?: boolean
+  showTimestamp?: boolean
   metaStrip?: string[]
   inspectOptions?: InspectOptions
 }
@@ -42,7 +43,9 @@ export class ConsoleFormat {
       `$1${color}${colors.dim(chr)}${colors.reset(" ")}`
     )
 
-    return `${info.level}:${message}`
+    const timestamp = `${colors.dim(info.timestamp)}`
+
+    return `${timestamp} ${info.level}:${message}`
   }
 
   private pad(message?: string): string {
