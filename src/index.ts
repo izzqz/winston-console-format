@@ -113,7 +113,7 @@ export class ConsoleFormat {
       if (index === arr.length - 1) {
         chr = ConsoleFormat.chars.endLine
       }
-      info[MESSAGE] += `\n${colors.dim(info.level)}:${pad}${color}${colors.dim(chr)}${colors.reset(" ")}`
+      info[MESSAGE] += `\n${colors.dim(info.timestamp)} ${colors.dim(info.level)}:${pad}${color}${colors.dim(chr)}${colors.reset(" ")}`
       info[MESSAGE] += `${lineNumber} ${line}`
     })
   }
